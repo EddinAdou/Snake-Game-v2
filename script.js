@@ -221,21 +221,30 @@ window.onload = function(){
     
     }
 
-    document.onkeydown = function handleKeyDown(e){
+    document.onkeydown = function handleKeyDown(e) {
         var key = e.keyCode;
         var newDirection;
-        switch(key){
+    
+        switch (key) {
             case 37:
-                newDirection = "left";
+                if (snakee.direction !== "right") {
+                    newDirection = "left";
+                }
                 break;
             case 38:
-                newDirection = "up";
+                if (snakee.direction !== "down") {
+                    newDirection = "up";
+                }
                 break;
             case 39:
-                newDirection = "right";
+                if (snakee.direction !== "left") {
+                    newDirection = "right";
+                }
                 break;
             case 40:
-                newDirection = "down";
+                if (snakee.direction !== "up") {
+                    newDirection = "down";
+                }
                 break;
             case 32:
                 restart();
@@ -245,4 +254,6 @@ window.onload = function(){
         }
         snakee.setDirection(newDirection);
     };
-}
+     
+ } 
+ 
